@@ -1362,7 +1362,7 @@ $(recovery_ramdisk): $(MINIGZIP) \
 		$(hide) $(RECOVERY_RAMDISK_COMPRESSOR) < $(recovery_uncompressed_ramdisk) > $@
 
 ifndef BOARD_CUSTOM_BOOTIMG_MK
-$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) \
+$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel) $(ADBD) \
 		$(RECOVERYIMAGE_EXTRA_DEPS)
 		@echo ----- Making recovery image ------
 		$(call build-recoveryimage-target, $@)
